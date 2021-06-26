@@ -1,6 +1,8 @@
 ﻿using Employee_Stack.Data;
 using Employee_Stack.Models;
+using Employee_Stack.Models.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -31,11 +33,14 @@ namespace Employee_Stack.Controllers
         //GET method
         public IActionResult Create() 
         {
+
+            //create private function that creates object in VM and define True/False based at what languages are known by that employee
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult CreatePost(Employee newEmployee)
+        public IActionResult CreatePost(EmployeeTechStackViewModel newEmployee)
         {
 
             if (ModelState.IsValid) 

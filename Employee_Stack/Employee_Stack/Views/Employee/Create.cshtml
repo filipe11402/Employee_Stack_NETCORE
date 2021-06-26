@@ -1,29 +1,26 @@
-﻿<div class="container register-form">
+﻿@model Employee_Stack.Models.ViewModel.EmployeeTechStackViewModel
+
+<div class="container register-form">
     <div class="form">
         <div class="note">
             <p>Create your new employee</p>
         </div>
-
-        <div class="form-content">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Phone Number *" value="" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Password *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Confirm Password *" value="" />
+        <form method="POST" action="CreatePost">
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <input asp-for="Employee.EmployeeName" class="form-control" placeholder="Your Name *" value="" />
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" asp-for="Employee.TeckStack" asp-items="@Model.LanguagesList" type="checkbox">
+                            <label class="form-check-label" asp-for="Employee.TeckStack">
+                            </label>
+                        </div>
                     </div>
                 </div>
+                <button type="button" class="btnSubmit">Submit</button>
             </div>
-            <button type="button" class="btnSubmit">Submit</button>
-        </div>
+        </form>
     </div>
 </div>
