@@ -1,0 +1,4 @@
+Lazy load - public virtual ICollection<T> -
+Eager load - public ICollection<T> -  and then do on Controller use with LINQ to EntityFramework with Include() KW - DbContext.Table.Include(
+													x => x.RelatedTableOfWhatWeQuery
+												).ToList();
