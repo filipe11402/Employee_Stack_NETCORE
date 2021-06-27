@@ -1,20 +1,23 @@
 ﻿@{
     List<Employee_Stack.Models.ViewModel.EmployeeTechStackViewModel> languages = ViewBag.Languages;
-}
+ }
 @model Employee_Stack.Models.Employee
 
-<form method="POST" asp-action="CreatePost">
+<form method="POST" asp-action="EditPost">
+    <input asp-for="Id" hidden />
+
     <div class="mb-3">
         <label asp-for="EmployeeName" class="form-label">Employee Name</label>
         <input asp-for="EmployeeName" class="form-control" />
     </div>
+
 
     @{
         foreach (var language in languages)
         {
             <div class="form-check">
                 <input class="form-check-input" name="selectedLanguages" type="checkbox" value="@language.LanguageId" @(Html.Raw(language.IsKnown ? "checked=\"checked\"" : "")) />
-                @language.LanguageName
+                @language.LanguageId : @language.LanguageName
             </div>
         }
     }
@@ -23,7 +26,7 @@
     <div class="form-group row">
         <div class="col-8 offset-2 row">
             <div class="col">
-                <input type="submit" class="btn btn-info w-75" value="Create" />
+                <input type="submit" class="btn btn-info w-75" value="Update" />
             </div>
             <div class="col">
                 <a class="btn btn-danger w-75" asp-action="Index">Go back</a>
