@@ -9,5 +9,6 @@ namespace Employee_Stack.Models
     {
         public int Id { get; set; }
         public string Languages { get; set; }
+        public virtual ICollection<Employee> Employee { get; set; }
     }
 }

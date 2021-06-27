@@ -118,6 +118,37 @@ namespace Employee_Stack.Controllers
             return View(employeeToUpdate);
         }
 
+        //GET method
+        public IActionResult Delete(int? Id) 
+        {
+            Employee empToDelete = _db.Employees.Include(x => x.TeckStack).FirstOrDefault(x => x.Id == Id);
+
+            if (empToDelete == null) 
+            {
+                return NotFound();
+            }
+
+            return View(empToDelete);
+        }
+
+        //POST method
+        [HttpPost]
+        public IActionResult DeletePost(int? Id)
+        {
+            Employee empToDelete = _db.Employees.Include(x => x.TeckStack).FirstOrDefault(x => x.Id == Id);
+
+            if (empToDelete == null)
+            {
+                return NotFound();
+            }
+
+            empToDelete.TeckStack.Clear();
+            _db.Remove(empToDelete);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         //Populating data in viewmodel to show checkboxes/checked checkboxes
         private void PopulateLanguageData(Employee employee) 
         {
