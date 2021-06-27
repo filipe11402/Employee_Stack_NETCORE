@@ -52,5 +52,46 @@ namespace Employee_Stack.Controllers
 
             return View();
         }
+
+        //GET method
+        public IActionResult Edit(int? Id) 
+        {
+
+            if (Id == null || Id <= 0) 
+            {
+                return NotFound();
+            }
+
+            Employee employee = _db.Employees.Include(x => x.TeckStack).Where(x => x.Id == Id).Single();
+
+            PopulateLanguageData(employee);
+            if (employee == null) 
+            {
+                return NotFound();
+            }
+
+            return View(employee);
+        }
+
+        //Populating data in viewmodel to show checkboxes/checked checkboxes
+        private void PopulateLanguageData(Employee employee) 
+        {
+            var allLanguages = _db.TeckStack;
+            var allEmployeeLanguages = new HashSet<int>(employee.TeckStack.Select(x => x.Id));
+            var viewModel = new List<EmployeeTechStackViewModel>();
+
+            foreach (var language in allLanguages) 
+            {
+                viewModel.Add(new EmployeeTechStackViewModel
+                {
+                    LanguageId = language.Id,
+                    LanguageName = language.Languages,
+                    IsKnown = allEmployeeLanguages.Contains(language.Id)
+                }
+                );
+            }
+
+            ViewBag.Languages = viewModel;
+        }
     }
 }

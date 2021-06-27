@@ -149,3 +149,4 @@ C:\Users\Dominique\Desktop\STUFF\dev\C#\Employee_Stack\Employee_Stack\Employee_S
 C:\Users\Dominique\Desktop\STUFF\dev\C#\Employee_Stack\Employee_Stack\Employee_Stack\obj\Debug\net5.0\Razor\Views\Language\Index.cshtml.g.cs
 C:\Users\Dominique\Desktop\STUFF\dev\C#\Employee_Stack\Employee_Stack\Employee_Stack\obj\Debug\net5.0\Razor\Views\Language\Create.cshtml.g.cs
 C:\Users\Dominique\Desktop\STUFF\dev\C#\Employee_Stack\Employee_Stack\Employee_Stack\obj\Debug\net5.0\Razor\Views\Language\Update.cshtml.g.cs
+C:\Users\Dominique\Desktop\STUFF\dev\C#\Employee_Stack\Employee_Stack\Employee_Stack\obj\Debug\net5.0\Razor\Views\Employee\Edit.cshtml.g.cs

@@ -8,9 +8,9 @@ namespace Employee_Stack.Models.ViewModel
 {
     public class EmployeeTechStackViewModel
     {
-        public Employee Employee { get; set; }
-        public string Languages { get; set; }
-        public bool KnownLanguage { get; set; }
+        public int LanguageId { get; set; }
+        public string LanguageName { get; set; }
+        public bool IsKnown { get; set; }
 
     }
 }

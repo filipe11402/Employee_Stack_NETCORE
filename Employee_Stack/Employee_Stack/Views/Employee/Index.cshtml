@@ -14,14 +14,18 @@
             <tbody>
                 @foreach (var emp in Model)
                 {
-                    <tr>
-                        <th scope="row">@emp.EmployeeName</th>
-                        @if (emp.TeckStack.Count > 0)
+                <tr>
+                    <th scope="row">@emp.EmployeeName</th>
+                    @if(emp.TeckStack != null){
+                        foreach (var language in emp.TeckStack)
                         {
-                            <th>You Dont have any languages in your Stack</th>
+                            <td>@language.Id : @language.Languages</td>
+
                         }
-                        <th>WOW you are a coder</th>
-                    </tr>
+                    }
+                    <th scope="row" width="30%"><a asp-controller="Employee" asp-action="edit" asp-route-Id="@emp.Id" class="btn btn-sm btn-primary">Update</a></th>
+                    <!--<th scope="row" width="30%"><a asp-controller="Language" asp-action="" asp-route-Id="" class="btn btn-sm btn-danger">Delete</a></th>-->
+                </tr>
 
                 }
 
